@@ -22,10 +22,9 @@ def get_height(root):
 
 
 def print_tree(root):
-    """
-    Print tree from top to bottom.
-    This is easier to understand than sideways printing.
-    """
+    if isinstance(root, list):
+        root = build_tree(root, show=False)
+
     if not root:
         print("(empty tree)")
         return
