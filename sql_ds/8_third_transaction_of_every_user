@@ -1,0 +1,61 @@
+-- Uber: Third Transaction of Every User
+--
+-- Description:
+-- Given a table `transactions` containing transactions made by users,
+-- write a query to obtain the third transaction of every user.
+--
+-- Table: transactions
+--
+-- +-------------+----------+
+-- | column_name | type     |
+-- +-------------+----------+
+-- | user_id     | integer  |
+-- | spend       | float    |
+-- | trans_date  | datetime |
+-- +-------------+----------+
+--
+-- Rule:
+-- For each user, order their transactions by `trans_date`.
+-- Then find the transaction where the order number is 3.
+--
+-- In other words:
+--
+-- user_id | trans_date | transaction_rank
+-- --------+------------+-----------------
+-- 1       | 2024-01-01 | 1
+-- 1       | 2024-01-05 | 2
+-- 1       | 2024-01-10 | 3  <-- keep this row
+--
+--
+-- Important:
+-- Each user should be ranked separately.
+--
+-- So we use:
+--
+-- PARTITION BY user_id
+--
+-- This means user 1's transactions and user 2's transactions
+-- are counted separately.
+--
+--
+-- Ordering logic:
+--
+-- ORDER BY trans_date
+--
+-- This means the earliest transaction is first,
+-- the second earliest transaction is second,
+-- and the third earliest transaction is third.
+--
+--
+-- Expected output:
+--
+-- Return the transaction information for each user's third transaction.
+--
+-- Usually output columns:
+--
+-- user_id
+-- spend
+-- trans_date
+
+SELECT user_id, spend, transdate
+FROM transactions t
