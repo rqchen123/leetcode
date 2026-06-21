@@ -41,3 +41,13 @@ def print_linked_list(head):
 
         current = current.next
     print()
+
+
+def connect_to_common(head, common):
+    current = head
+
+    while current.next:
+        current = current.next
+
+    current.next = common
+
