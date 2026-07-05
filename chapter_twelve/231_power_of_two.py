@@ -10,7 +10,6 @@ class Solution:
         return True
 
 
-
 n = 4
 #Output: true
 t = Solution()
