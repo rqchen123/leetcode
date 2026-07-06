@@ -1,5 +1,5 @@
 class Solution:
-    def isPowerOfTwo(self, n: int) -> bool:
+    def isPowerOfTwo_math(self, n: int) -> bool:
         if n <= 0:
             return False
 
@@ -8,9 +8,12 @@ class Solution:
                 return False
             n = n // 2
         return True
+    
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n>0 and (n&(n-1) == 0)
 
 
-n = 4
+n = 8
 #Output: true
 t = Solution()
 re = t.isPowerOfTwo(n)
