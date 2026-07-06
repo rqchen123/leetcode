@@ -1,5 +1,5 @@
 class Solution:
-    def isPowerOfFour(self, n: int) -> bool:
+    def isPowerOfFour_math(self, n: int) -> bool:
         if n<= 0:
             return False
 
@@ -9,8 +9,11 @@ class Solution:
                 return False
             n = n//4
         return True
+    
+    def isPowerOfFour(self, n: int) -> bool:
+        return n>0 and (n&(n-1)==0) and (n & 0x55555555) !=0
 
-n = 3
+n = 15
 t = Solution()
 re = t.isPowerOfFour(n)
 print(re)
