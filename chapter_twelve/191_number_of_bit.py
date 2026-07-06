@@ -1,5 +1,5 @@
 class Solution:
-    def hammingWeight(self, n: int) -> int:
+    def hammingWeight_math(self, n: int) -> int:
         count = 0
         while n > 0:
             print(f"count:{count},n:", n)
@@ -10,7 +10,17 @@ class Solution:
 
         print("final:", count)
         return count
+    
+    def hammingWeight(self, n: int) -> int:
+        count = 0
 
-n = 11
+        while n > 0:
+            if n & 1:
+                count += 1
+            n = n >> 1
+        return count 
+
+n = 8
 t = Solution()
 re = t.hammingWeight(n)
+print(re)
